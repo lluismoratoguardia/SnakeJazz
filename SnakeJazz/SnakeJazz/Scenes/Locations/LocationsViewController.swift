@@ -1,5 +1,5 @@
 //
-//  CharactersViewController.swift
+//  LocationsViewController.swift
 //  SnakeJazz
 //
 //  Created by Lluís Morató on 6/6/24.
@@ -12,12 +12,12 @@
 
 import UIKit
 
-protocol CharactersDisplayLogic: AnyObject {
+protocol LocationsDisplayLogic: AnyObject {
 }
 
-class CharactersViewController: UIViewController {
-    var interactor: CharactersBusinessLogic?
-    var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
+class LocationsViewController: UIViewController {
+    var interactor: LocationsBusinessLogic?
+    var router: (NSObjectProtocol & LocationsRoutingLogic & LocationsDataPassing)?
     
     // MARK: Object lifecycle
     
@@ -35,9 +35,9 @@ class CharactersViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = CharactersInteractor()
-        let presenter = CharactersPresenter()
-        let router = CharactersRouter()
+        let interactor = LocationsInteractor()
+        let presenter = LocationsPresenter()
+        let router = LocationsRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -67,12 +67,12 @@ class CharactersViewController: UIViewController {
     // MARK: View Setup
     
     private func setupView() {
-        title = String(localized: "characters_title")
+        title = String(localized: "locations_title")
         view.backgroundColor = Colors.backgroundColor
     }
     
     // MARK: Actions
 }
 
-extension CharactersViewController: CharactersDisplayLogic {
+extension LocationsViewController: LocationsDisplayLogic {
 }

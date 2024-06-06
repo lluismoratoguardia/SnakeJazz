@@ -12,12 +12,38 @@
 
 import UIKit
 
+enum DashboardMenuOptions: CaseIterable {
+    case characters
+    case locations
+    case episodes
+    
+    func displayName() -> String {
+        switch self {
+        case .characters:
+            return String(localized: "dashboard_menu_characters")
+        case .locations:
+            return String(localized: "dashboard_menu_locations")
+        case .episodes:
+            return String(localized: "dashboard_menu_episodes")
+        }
+    }
+}
+
 protocol DashboardDisplayLogic: AnyObject {
 }
 
 class DashboardViewController: UIViewController {
+    @IBOutlet private weak var welcomeTitleLabel: UILabel!
+    @IBOutlet private weak var welcomeSubtitleLabel: UILabel!
+    @IBOutlet private weak var welcomeDisclaimerLabel: UILabel!
+    
+    @IBOutlet private weak var menuInformationLabel: UILabel!
+    @IBOutlet private weak var menuTableView: UITableView!
+    
     var interactor: DashboardBusinessLogic?
     var router: (NSObjectProtocol & DashboardRoutingLogic & DashboardDataPassing)?
+    
+    var menuOptions = DashboardMenuOptions.allCases
     
     // MARK: Object lifecycle
     
@@ -61,9 +87,85 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        setupTableView()
     }
     
     // MARK: Actions
+    
+    private func setupView() {
+        title = String(localized: "dashboard_title")
+        view.backgroundColor = Colors.backgroundColor
+        
+        welcomeTitleLabel.font = Fonts.mainTitle
+        welcomeSubtitleLabel.font = Fonts.mainSubtitle
+        welcomeDisclaimerLabel.font = Fonts.disclaimer
+        
+        welcomeTitleLabel.attributedText = formatWelcomeTitle()
+        welcomeSubtitleLabel.text = String(localized: "dashboard_welcome_subtitle")
+        welcomeDisclaimerLabel.text = String(localized: "dashboard_welcome_disclaimer")
+        
+        menuInformationLabel.font = Fonts.defaultText
+        menuInformationLabel.text = String(localized: "dashboard_menu_information")
+    }
+    
+    private func setupTableView() {
+        menuTableView.backgroundColor = Colors.clear
+        menuTableView.register(UINib(nibName: DashboardMenuTableViewCell.getName(), bundle: nil), forCellReuseIdentifier: DashboardMenuTableViewCell.getName())
+    }
+    
+    private func formatWelcomeTitle() -> NSAttributedString{
+        let mainTitleText = String(localized: "dashboard_welcome_title")
+        let mainTitleAttributedText = NSMutableAttributedString(string: mainTitleText, attributes: [.font: Fonts.mainTitle])
+        
+        let appNameText = String(localized: "appName")
+        let appNameAttributedText = NSMutableAttributedString(string: appNameText, attributes: [.font: Fonts.standoutTitle])
+
+        let welcomeTitleAttributedText = NSMutableAttributedString()
+        welcomeTitleAttributedText.append(mainTitleAttributedText)
+        welcomeTitleAttributedText.append(appNameAttributedText)
+        
+        return welcomeTitleAttributedText
+    }
+    
+    // MARK: Actions
+    
+    @IBAction private func charactersListTouchUp() {
+        router?.goToCharactersList()
+    }
+}
+
+extension DashboardViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuOptions.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardMenuTableViewCell.getName()) as? DashboardMenuTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.setup(DashboardMenuCellModel(title: menuOptions[indexPath.row].displayName()))
+        
+        return cell
+    }
+}
+
+extension DashboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch menuOptions[indexPath.row] {
+        case .characters:
+            router?.goToCharactersList()
+        case .episodes:
+            router?.goToEpisodesList()
+        case .locations:
+            router?.goToLocationsList()
+        }
+    }
 }
 
 extension DashboardViewController: DashboardDisplayLogic {

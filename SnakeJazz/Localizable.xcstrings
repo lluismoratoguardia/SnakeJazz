@@ -1,7 +1,127 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "appName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snake Jazz"
+          }
+        }
+      }
+    },
+    "characters_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Characters"
+          }
+        }
+      }
+    },
+    "dashboard_menu_characters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Who was that character that..."
+          }
+        }
+      }
+    },
+    "dashboard_menu_episodes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's check some episodes"
+          }
+        }
+      }
+    },
+    "dashboard_menu_information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How may I help you? Please select the section you would like to know more of:"
+          }
+        }
+      }
+    },
+    "dashboard_menu_locations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Somewhere far far away"
+          }
+        }
+      }
+    },
+    "dashboard_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
+          }
+        }
+      }
+    },
+    "dashboard_welcome_disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No snakes were harmed during the coding of this wiki, at least that I know of. Maybe. I don't really know. Don't take it for granted."
+          }
+        }
+      }
+    },
+    "dashboard_welcome_subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arguably the best Rick & Morty Wiki out there"
+          }
+        }
+      }
+    },
+    "dashboard_welcome_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to "
+          }
+        }
+      }
+    },
+    "episodes_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Episodes"
+          }
+        }
+      }
+    },
+    "locations_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locations"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
