@@ -41,6 +41,21 @@
 		5695DF522C11AE0E007A710B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF512C11AE0E007A710B /* Fonts.swift */; };
 		5695DF582C11AECA007A710B /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5695DF572C11AECA007A710B /* get_schwifty.ttf */; };
 		5695DF5A2C11B656007A710B /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF592C11B656007A710B /* FontUtils.swift */; };
+		5695DF5E2C120E5F007A710B /* DashboardMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF5C2C120E5F007A710B /* DashboardMenuTableViewCell.swift */; };
+		5695DF5F2C120E5F007A710B /* DashboardMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5695DF5D2C120E5F007A710B /* DashboardMenuTableViewCell.xib */; };
+		5695DF612C1210BA007A710B /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF602C1210BA007A710B /* UITableViewCellExtension.swift */; };
+		5695DF6A2C122EAE007A710B /* EpisodesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF642C122EAE007A710B /* EpisodesPresenter.swift */; };
+		5695DF6B2C122EAE007A710B /* EpisodesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF652C122EAE007A710B /* EpisodesRouter.swift */; };
+		5695DF6C2C122EAE007A710B /* EpisodesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF662C122EAE007A710B /* EpisodesModels.swift */; };
+		5695DF6D2C122EAE007A710B /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF672C122EAE007A710B /* EpisodesViewController.swift */; };
+		5695DF6E2C122EAE007A710B /* EpisodesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF682C122EAE007A710B /* EpisodesInteractor.swift */; };
+		5695DF6F2C122EAE007A710B /* EpisodesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5695DF692C122EAE007A710B /* EpisodesViewController.xib */; };
+		5695DF762C122EE9007A710B /* LocationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF702C122EE9007A710B /* LocationsPresenter.swift */; };
+		5695DF772C122EE9007A710B /* LocationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF712C122EE9007A710B /* LocationsRouter.swift */; };
+		5695DF782C122EE9007A710B /* LocationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF722C122EE9007A710B /* LocationsModels.swift */; };
+		5695DF792C122EE9007A710B /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF732C122EE9007A710B /* LocationsViewController.swift */; };
+		5695DF7A2C122EE9007A710B /* LocationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF742C122EE9007A710B /* LocationsInteractor.swift */; };
+		5695DF7B2C122EE9007A710B /* LocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5695DF752C122EE9007A710B /* LocationsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +113,21 @@
 		5695DF512C11AE0E007A710B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		5695DF572C11AECA007A710B /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
 		5695DF592C11B656007A710B /* FontUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtils.swift; sourceTree = "<group>"; };
+		5695DF5C2C120E5F007A710B /* DashboardMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMenuTableViewCell.swift; sourceTree = "<group>"; };
+		5695DF5D2C120E5F007A710B /* DashboardMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardMenuTableViewCell.xib; sourceTree = "<group>"; };
+		5695DF602C1210BA007A710B /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		5695DF642C122EAE007A710B /* EpisodesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesPresenter.swift; sourceTree = "<group>"; };
+		5695DF652C122EAE007A710B /* EpisodesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesRouter.swift; sourceTree = "<group>"; };
+		5695DF662C122EAE007A710B /* EpisodesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModels.swift; sourceTree = "<group>"; };
+		5695DF672C122EAE007A710B /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		5695DF682C122EAE007A710B /* EpisodesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesInteractor.swift; sourceTree = "<group>"; };
+		5695DF692C122EAE007A710B /* EpisodesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesViewController.xib; sourceTree = "<group>"; };
+		5695DF702C122EE9007A710B /* LocationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPresenter.swift; sourceTree = "<group>"; };
+		5695DF712C122EE9007A710B /* LocationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsRouter.swift; sourceTree = "<group>"; };
+		5695DF722C122EE9007A710B /* LocationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsModels.swift; sourceTree = "<group>"; };
+		5695DF732C122EE9007A710B /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		5695DF742C122EE9007A710B /* LocationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsInteractor.swift; sourceTree = "<group>"; };
+		5695DF752C122EE9007A710B /* LocationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +238,7 @@
 			children = (
 				5625C51D2C10BF3900ECC39E /* UIViewControllerExtension.swift */,
 				5695DF4F2C11A95D007A710B /* UIColorExtension.swift */,
+				5695DF602C1210BA007A710B /* UITableViewCellExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +268,8 @@
 		5625C50D2C10AAF100ECC39E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5695DF632C122E7F007A710B /* Episodes */,
+				5695DF622C122E7A007A710B /* Locations */,
 				560EB3AB2C111C1100268AA3 /* Character Details */,
 				562E91842C111B7A004971C5 /* Characters */,
 				5625C51C2C10BD8800ECC39E /* Splash */,
@@ -256,6 +289,7 @@
 		5625C50F2C10AB1500ECC39E /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				5695DF5B2C120E3C007A710B /* Menu Cell */,
 				560EB3B82C111C4300268AA3 /* DashboardPresenter.swift */,
 				560EB3B92C111C4300268AA3 /* DashboardRouter.swift */,
 				560EB3BA2C111C4300268AA3 /* DashboardModels.swift */,
@@ -301,6 +335,41 @@
 				5695DF572C11AECA007A710B /* get_schwifty.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5695DF5B2C120E3C007A710B /* Menu Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5695DF5C2C120E5F007A710B /* DashboardMenuTableViewCell.swift */,
+				5695DF5D2C120E5F007A710B /* DashboardMenuTableViewCell.xib */,
+			);
+			path = "Menu Cell";
+			sourceTree = "<group>";
+		};
+		5695DF622C122E7A007A710B /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				5695DF702C122EE9007A710B /* LocationsPresenter.swift */,
+				5695DF712C122EE9007A710B /* LocationsRouter.swift */,
+				5695DF722C122EE9007A710B /* LocationsModels.swift */,
+				5695DF732C122EE9007A710B /* LocationsViewController.swift */,
+				5695DF742C122EE9007A710B /* LocationsInteractor.swift */,
+				5695DF752C122EE9007A710B /* LocationsViewController.xib */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		5695DF632C122E7F007A710B /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				5695DF642C122EAE007A710B /* EpisodesPresenter.swift */,
+				5695DF652C122EAE007A710B /* EpisodesRouter.swift */,
+				5695DF662C122EAE007A710B /* EpisodesModels.swift */,
+				5695DF672C122EAE007A710B /* EpisodesViewController.swift */,
+				5695DF682C122EAE007A710B /* EpisodesInteractor.swift */,
+				5695DF692C122EAE007A710B /* EpisodesViewController.xib */,
+			);
+			path = Episodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,8 +482,11 @@
 				560EB3C82C111DA700268AA3 /* Localizable.xcstrings in Resources */,
 				5625C4E32C10643A00ECC39E /* Assets.xcassets in Resources */,
 				5625C4E62C10643A00ECC39E /* Base in Resources */,
+				5695DF7B2C122EE9007A710B /* LocationsViewController.xib in Resources */,
 				5695DF582C11AECA007A710B /* get_schwifty.ttf in Resources */,
 				560EB3C32C111C4300268AA3 /* DashboardViewController.xib in Resources */,
+				5695DF6F2C122EAE007A710B /* EpisodesViewController.xib in Resources */,
+				5695DF5F2C120E5F007A710B /* DashboardMenuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +516,16 @@
 				5625C51E2C10BF3900ECC39E /* UIViewControllerExtension.swift in Sources */,
 				560EB3A52C111BF100268AA3 /* CharactersPresenter.swift in Sources */,
 				560EB3A62C111BF100268AA3 /* CharactersRouter.swift in Sources */,
+				5695DF6A2C122EAE007A710B /* EpisodesPresenter.swift in Sources */,
+				5695DF6B2C122EAE007A710B /* EpisodesRouter.swift in Sources */,
+				5695DF6C2C122EAE007A710B /* EpisodesModels.swift in Sources */,
+				5695DF762C122EE9007A710B /* LocationsPresenter.swift in Sources */,
+				5695DF772C122EE9007A710B /* LocationsRouter.swift in Sources */,
+				5695DF782C122EE9007A710B /* LocationsModels.swift in Sources */,
+				5695DF792C122EE9007A710B /* LocationsViewController.swift in Sources */,
+				5695DF7A2C122EE9007A710B /* LocationsInteractor.swift in Sources */,
+				5695DF6D2C122EAE007A710B /* EpisodesViewController.swift in Sources */,
+				5695DF6E2C122EAE007A710B /* EpisodesInteractor.swift in Sources */,
 				560EB3A72C111BF100268AA3 /* CharactersModels.swift in Sources */,
 				5695DF5A2C11B656007A710B /* FontUtils.swift in Sources */,
 				560EB3B22C111C2A00268AA3 /* CharacterDetailsPresenter.swift in Sources */,
@@ -453,6 +535,8 @@
 				560EB3BE2C111C4300268AA3 /* DashboardPresenter.swift in Sources */,
 				560EB3BF2C111C4300268AA3 /* DashboardRouter.swift in Sources */,
 				560EB3C02C111C4300268AA3 /* DashboardModels.swift in Sources */,
+				5695DF5E2C120E5F007A710B /* DashboardMenuTableViewCell.swift in Sources */,
+				5695DF612C1210BA007A710B /* UITableViewCellExtension.swift in Sources */,
 				5695DF4E2C11A828007A710B /* Colors.swift in Sources */,
 				560EB3C12C111C4300268AA3 /* DashboardViewController.swift in Sources */,
 				560EB3C22C111C4300268AA3 /* DashboardInteractor.swift in Sources */,

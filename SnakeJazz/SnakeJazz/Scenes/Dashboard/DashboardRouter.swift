@@ -13,7 +13,9 @@
 import UIKit
 
 @objc protocol DashboardRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func goToCharactersList()
+    func goToEpisodesList()
+    func goToLocationsList()
 }
 
 protocol DashboardDataPassing {
@@ -23,6 +25,33 @@ protocol DashboardDataPassing {
 class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     weak var viewController: DashboardViewController?
     var dataStore: DashboardDataStore?
+    
+    func goToCharactersList() {
+        let charactersListViewController = CharactersViewController(nibName: CharactersViewController.getName(), bundle: nil)
+        if let navigationController = viewController?.navigationController {
+            navigationController.pushViewController(charactersListViewController, animated: true)
+        } else {
+            viewController?.present(charactersListViewController, animated: true)
+        }
+    }
+    
+    func goToEpisodesList() {
+        let episodesListViewController = EpisodesViewController(nibName: EpisodesViewController.getName(), bundle: nil)
+        if let navigationController = viewController?.navigationController {
+            navigationController.pushViewController(episodesListViewController, animated: true)
+        } else {
+            viewController?.present(episodesListViewController, animated: true)
+        }
+    }
+    
+    func goToLocationsList() {
+        let locationsListViewController = LocationsViewController(nibName: LocationsViewController.getName(), bundle: nil)
+        if let navigationController = viewController?.navigationController {
+            navigationController.pushViewController(locationsListViewController, animated: true)
+        } else {
+            viewController?.present(locationsListViewController, animated: true)
+        }
+    }
     
     // MARK: Routing
     

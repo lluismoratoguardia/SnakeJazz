@@ -12,6 +12,7 @@ struct Fonts {
     static let mainTitle = UIFont.systemFont(ofSize: 20, weight: .bold)
     static let mainSubtitle = UIFont.systemFont(ofSize: 16, weight: .bold)
     static let disclaimer = UIFont.italicSystemFont(ofSize: 8)
+    static let defaultText = UIFont.systemFont(ofSize: 16)
 }
 
 struct FontNames {

@@ -12,6 +12,66 @@
         }
       }
     },
+    "characters_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Characters"
+          }
+        }
+      }
+    },
+    "dashboard_menu_characters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Who was that character that..."
+          }
+        }
+      }
+    },
+    "dashboard_menu_episodes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's check some episodes"
+          }
+        }
+      }
+    },
+    "dashboard_menu_information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How may I help you? Please select the section you would like to know more of:"
+          }
+        }
+      }
+    },
+    "dashboard_menu_locations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Somewhere far far away"
+          }
+        }
+      }
+    },
+    "dashboard_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
+          }
+        }
+      }
+    },
     "dashboard_welcome_disclaimer" : {
       "localizations" : {
         "en" : {
@@ -38,6 +98,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome to "
+          }
+        }
+      }
+    },
+    "episodes_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Episodes"
+          }
+        }
+      }
+    },
+    "locations_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locations"
           }
         }
       }

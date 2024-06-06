@@ -1,5 +1,5 @@
 //
-//  CharactersRouter.swift
+//  LocationsRouter.swift
 //  SnakeJazz
 //
 //  Created by Lluís Morató on 6/6/24.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-@objc protocol CharactersRoutingLogic {
+@objc protocol LocationsRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol CharactersDataPassing {
-    var dataStore: CharactersDataStore? { get }
+protocol LocationsDataPassing {
+    var dataStore: LocationsDataStore? { get }
 }
 
-class CharactersRouter: NSObject, CharactersRoutingLogic, CharactersDataPassing {
-    weak var viewController: CharactersViewController?
-    var dataStore: CharactersDataStore?
+class LocationsRouter: NSObject, LocationsRoutingLogic, LocationsDataPassing {
+    weak var viewController: LocationsViewController?
+    var dataStore: LocationsDataStore?
     
     // MARK: Routing
     
@@ -41,17 +41,16 @@ class CharactersRouter: NSObject, CharactersRoutingLogic, CharactersDataPassing 
     //  }
     //}
     
-    
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: CharactersViewController, destination: SomewhereViewController)
+    //func navigateToSomewhere(source: LocationsViewController, destination: SomewhereViewController)
     //{
     //  source.show(destination, sender: nil)
     //}
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: CharactersDataStore, destination: inout SomewhereDataStore)
+    //func passDataToSomewhere(source: LocationsDataStore, destination: inout SomewhereDataStore)
     //{
     //  destination.name = source.name
     //}
