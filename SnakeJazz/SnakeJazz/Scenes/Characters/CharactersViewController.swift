@@ -13,9 +13,14 @@
 import UIKit
 
 protocol CharactersDisplayLogic: AnyObject {
+    func displayCharacters(_ characters: [CharactersViewModel.Character], canPaginate: Bool)
 }
 
 class CharactersViewController: UIViewController {
+    @IBOutlet private weak var simulatePaginationButton: UIButton!
+    
+    private var canPaginate = false
+    
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
     
@@ -64,6 +69,11 @@ class CharactersViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.getCharacters()
+    }
+    
     // MARK: View Setup
     
     private func setupView() {
@@ -72,7 +82,19 @@ class CharactersViewController: UIViewController {
     }
     
     // MARK: Actions
+    
+    @IBAction private func simulatePaginationTouchUp() {
+        if canPaginate {
+            interactor?.getNextCharacters()
+        } else {
+            simulatePaginationButton.isEnabled = false
+        }
+    }
 }
 
 extension CharactersViewController: CharactersDisplayLogic {
+    func displayCharacters(_ characters: [CharactersViewModel.Character], canPaginate: Bool) {
+        self.canPaginate = canPaginate
+        print(characters)
+    }
 }

@@ -13,9 +13,42 @@
 import UIKit
 
 protocol CharactersPresentationLogic {
-    //  func presentSomething(response: Characters.Something.Response)
+    func presentCharacters(_ characters: [CharacterModel], canPaginate: Bool)
 }
 
 class CharactersPresenter: CharactersPresentationLogic {
     weak var viewController: CharactersDisplayLogic?
+    
+    func presentCharacters(_ characters: [CharacterModel], canPaginate: Bool) {
+        let displayableCharacters = characters.map({ formatCharacter($0) })
+        viewController?.displayCharacters(displayableCharacters, canPaginate: canPaginate)
+    }
+    
+    private func formatCharacter(_ character: CharacterModel) -> CharactersViewModel.Character {
+        var status: CharactersViewModel.CharacterStatus = .unknown
+        switch character.status {
+        case .alive:
+            status = .alive
+        case .dead:
+            status = .dead
+        case .unknown:
+            status = .unknown
+        }
+        
+        var gender: CharactersViewModel.CharacterGender = .unknown
+        switch character.gender {
+        case .female:
+            gender = .female
+        case .male:
+            gender = .male
+        case .genderless:
+            gender = .genderless
+        case .unknown:
+            gender = .unknown
+        }
+        
+        let displayableCharacter = CharactersViewModel.Character(id: character.id, name: character.name, status: status, type: character.type, gender: gender, origin: character.origin.name, lastLocation: character.location.name, image: character.image)
+        
+        return displayableCharacter
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 enum ErrorType: String {
     case network = "network"
     case undefined = "undefined"
+    case badUrl = "badUrl"
 }
 
 enum RequestResult<T: Codable> {
@@ -22,8 +23,19 @@ class Client {
     
     private init() {}
     
-    func requestPaginatedCharacters(completion: @escaping(RequestResult<PaginableResponseModel<CharacterModel>>) -> Void) {
+    func requestPaginatedCharacters(completion: @escaping(RequestResult<PaginatedResponseModel<CharacterModel>>) -> Void) {
         let urlRequest = URLRequest(url: URL(string: ClientConstants.baseURL + ClientConstants.Endpoints.paginatedCharacters)!)
+        
+        performRequest(urlRequest, completion: completion)
+    }
+    
+    func requestCharactersPage(_ pageUrl: String, completion: @escaping(RequestResult<PaginatedResponseModel<CharacterModel>>) -> Void) {
+        guard let url = URL(string: pageUrl) else {
+            completion(.error(response: .badUrl))
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
         
         performRequest(urlRequest, completion: completion)
     }

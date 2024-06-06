@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PaginableResponseModel<T: Codable>: Codable {
+struct PaginatedResponseModel<T: Codable>: Codable {
     let info: PaginationModel
     let results: [T]
 }

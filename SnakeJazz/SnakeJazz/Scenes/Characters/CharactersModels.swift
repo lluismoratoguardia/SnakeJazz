@@ -13,4 +13,27 @@
 import UIKit
 
 struct CharactersViewModel {
+    struct Character {
+        let id: Int
+        let name: String
+        let status: CharactersViewModel.CharacterStatus
+        let type: String
+        let gender: CharactersViewModel.CharacterGender
+        let origin: String
+        let lastLocation: String
+        let image: String
+    }
+    
+    enum CharacterStatus {
+        case dead
+        case alive
+        case unknown
+    }
+    
+    enum CharacterGender {
+        case male
+        case female
+        case genderless
+        case unknown
+    }
 }

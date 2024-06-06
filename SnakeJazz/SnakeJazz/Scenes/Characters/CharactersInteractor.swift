@@ -13,6 +13,8 @@
 import UIKit
 
 protocol CharactersBusinessLogic {
+    func getCharacters()
+    func getNextCharacters()
 }
 
 protocol CharactersDataStore {
@@ -21,5 +23,33 @@ protocol CharactersDataStore {
 
 class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
     var presenter: CharactersPresentationLogic?
+    
+    var paginatedCharacters: PaginatedResponseModel<CharacterModel>?
     //var name: String = ""
+    
+    func getCharacters() {
+        Client.shared.requestPaginatedCharacters { [weak self] response in
+            self?.handlePaginatedCharactersResponse(response)
+        }
+    }
+    
+    func getNextCharacters() {
+        guard let nextPage = paginatedCharacters?.info.next else {
+            return
+        }
+        
+        Client.shared.requestCharactersPage(nextPage) { [weak self] response in
+            self?.handlePaginatedCharactersResponse(response)
+        }
+    }
+    
+    private func handlePaginatedCharactersResponse(_ response: RequestResult<PaginatedResponseModel<CharacterModel>>) {
+        switch response {
+        case .success(let paginatedCharacters):
+            self.paginatedCharacters = paginatedCharacters
+            presenter?.presentCharacters(paginatedCharacters.results, canPaginate: paginatedCharacters.info.next != nil)
+        case .error(let error):
+            print("")
+        }
+    }
 }
