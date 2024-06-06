@@ -56,6 +56,10 @@
 		5695DF792C122EE9007A710B /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF732C122EE9007A710B /* LocationsViewController.swift */; };
 		5695DF7A2C122EE9007A710B /* LocationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF742C122EE9007A710B /* LocationsInteractor.swift */; };
 		5695DF7B2C122EE9007A710B /* LocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5695DF752C122EE9007A710B /* LocationsViewController.xib */; };
+		5695DF7D2C126216007A710B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF7C2C126216007A710B /* Client.swift */; };
+		5695DF812C12668D007A710B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF802C12668D007A710B /* ResponseModel.swift */; };
+		5695DF832C1269F4007A710B /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF822C1269F4007A710B /* CharacterModel.swift */; };
+		5695DF852C126D8F007A710B /* ClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF842C126D8F007A710B /* ClientConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +132,10 @@
 		5695DF732C122EE9007A710B /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		5695DF742C122EE9007A710B /* LocationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsInteractor.swift; sourceTree = "<group>"; };
 		5695DF752C122EE9007A710B /* LocationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationsViewController.xib; sourceTree = "<group>"; };
+		5695DF7C2C126216007A710B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		5695DF802C12668D007A710B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		5695DF822C1269F4007A710B /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		5695DF842C126D8F007A710B /* ClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				5625C50C2C10AADB00ECC39E /* Models */,
+				5695DF7C2C126216007A710B /* Client.swift */,
+				5695DF842C126D8F007A710B /* ClientConstants.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -261,6 +271,8 @@
 		5625C50C2C10AADB00ECC39E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5695DF802C12668D007A710B /* ResponseModel.swift */,
+				5695DF822C1269F4007A710B /* CharacterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -516,12 +528,15 @@
 				5625C51E2C10BF3900ECC39E /* UIViewControllerExtension.swift in Sources */,
 				560EB3A52C111BF100268AA3 /* CharactersPresenter.swift in Sources */,
 				560EB3A62C111BF100268AA3 /* CharactersRouter.swift in Sources */,
+				5695DF832C1269F4007A710B /* CharacterModel.swift in Sources */,
 				5695DF6A2C122EAE007A710B /* EpisodesPresenter.swift in Sources */,
 				5695DF6B2C122EAE007A710B /* EpisodesRouter.swift in Sources */,
 				5695DF6C2C122EAE007A710B /* EpisodesModels.swift in Sources */,
+				5695DF7D2C126216007A710B /* Client.swift in Sources */,
 				5695DF762C122EE9007A710B /* LocationsPresenter.swift in Sources */,
 				5695DF772C122EE9007A710B /* LocationsRouter.swift in Sources */,
 				5695DF782C122EE9007A710B /* LocationsModels.swift in Sources */,
+				5695DF852C126D8F007A710B /* ClientConstants.swift in Sources */,
 				5695DF792C122EE9007A710B /* LocationsViewController.swift in Sources */,
 				5695DF7A2C122EE9007A710B /* LocationsInteractor.swift in Sources */,
 				5695DF6D2C122EAE007A710B /* EpisodesViewController.swift in Sources */,
@@ -536,6 +551,7 @@
 				560EB3BF2C111C4300268AA3 /* DashboardRouter.swift in Sources */,
 				560EB3C02C111C4300268AA3 /* DashboardModels.swift in Sources */,
 				5695DF5E2C120E5F007A710B /* DashboardMenuTableViewCell.swift in Sources */,
+				5695DF812C12668D007A710B /* ResponseModel.swift in Sources */,
 				5695DF612C1210BA007A710B /* UITableViewCellExtension.swift in Sources */,
 				5695DF4E2C11A828007A710B /* Colors.swift in Sources */,
 				560EB3C12C111C4300268AA3 /* DashboardViewController.swift in Sources */,
