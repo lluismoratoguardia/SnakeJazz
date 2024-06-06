@@ -1,7 +1,47 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "appName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Snake Jazz"
+          }
+        }
+      }
+    },
+    "dashboard_welcome_disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No snakes were harmed during the coding of this wiki, at least that I know of. Maybe. I don't really know. Don't take it for granted."
+          }
+        }
+      }
+    },
+    "dashboard_welcome_subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arguably the best Rick & Morty Wiki out there"
+          }
+        }
+      }
+    },
+    "dashboard_welcome_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to "
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
