@@ -15,7 +15,7 @@ import UIKit
 protocol EpisodesDisplayLogic: AnyObject {
 }
 
-class EpisodesViewController: UIViewController {
+class EpisodesViewController: BaseViewController {
     var interactor: EpisodesBusinessLogic?
     var router: (NSObjectProtocol & EpisodesRoutingLogic & EpisodesDataPassing)?
     

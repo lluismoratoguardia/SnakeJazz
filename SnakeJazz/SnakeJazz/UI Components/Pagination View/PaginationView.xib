@@ -8,9 +8,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaginationView" customModule="SnakeJazz" customModuleProvider="target">
+            <connections>
+                <outlet property="currentPageLabel" destination="PFI-pT-XaZ" id="21g-Ko-5yx"/>
+                <outlet property="nextPageButton" destination="1Pj-qL-YYH" id="4ig-Tf-3bZ"/>
+                <outlet property="previousPageButton" destination="QCS-XN-MnA" id="ujB-JV-eZE"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PaginationView" customModule="SnakeJazz" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -25,7 +31,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system"/>
                             <connections>
-                                <action selector="previousPageTouchUp" destination="iN0-l3-epB" eventType="touchUpInside" id="iWF-SO-3fg"/>
+                                <action selector="previousPageTouchUp" destination="-1" eventType="touchUpInside" id="YkM-IH-0o2"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFI-pT-XaZ">
@@ -42,7 +48,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="arrow.forward" catalog="system"/>
                             <connections>
-                                <action selector="nextPageTouchUp" destination="iN0-l3-epB" eventType="touchUpInside" id="WOg-30-LLF"/>
+                                <action selector="nextPageTouchUp" destination="-1" eventType="touchUpInside" id="l6G-Yi-G2T"/>
                             </connections>
                         </button>
                     </subviews>
@@ -71,11 +77,6 @@
                 <constraint firstItem="KEv-vK-oLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ygD-r7-EGi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="currentPageLabel" destination="PFI-pT-XaZ" id="KTa-F0-K3P"/>
-                <outlet property="nextPageButton" destination="1Pj-qL-YYH" id="5ZL-3O-BsG"/>
-                <outlet property="previousPageButton" destination="QCS-XN-MnA" id="eLu-kx-AZ6"/>
-            </connections>
             <point key="canvasLocation" x="20.610687022900763" y="19.718309859154932"/>
         </view>
     </objects>

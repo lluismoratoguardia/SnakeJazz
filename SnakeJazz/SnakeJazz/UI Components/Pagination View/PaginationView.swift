@@ -18,7 +18,8 @@ protocol PaginationViewProtocol {
     func getNextPage()
 }
 
-class PaginationView: UIView {
+@IBDesignable
+class PaginationView: BaseView {
     @IBOutlet private weak var currentPageLabel: UILabel!
     @IBOutlet private weak var previousPageButton: UIButton!
     @IBOutlet private weak var nextPageButton: UIButton!

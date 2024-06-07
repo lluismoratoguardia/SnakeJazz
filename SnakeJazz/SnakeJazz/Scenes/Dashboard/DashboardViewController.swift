@@ -32,7 +32,7 @@ enum DashboardMenuOptions: CaseIterable {
 protocol DashboardDisplayLogic: AnyObject {
 }
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: BaseViewController {
     @IBOutlet private weak var welcomeTitleLabel: UILabel!
     @IBOutlet private weak var welcomeSubtitleLabel: UILabel!
     @IBOutlet private weak var welcomeDisclaimerLabel: UILabel!

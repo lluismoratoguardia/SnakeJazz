@@ -13,17 +13,24 @@
 import UIKit
 
 protocol CharactersPresentationLogic {
-    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel)
+    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel, pageRequested: Int)
 }
 
 class CharactersPresenter: CharactersPresentationLogic {
     weak var viewController: CharactersDisplayLogic?
     
-    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel) {
-        let displayableCharacters = characters.map({ formatCharacter($0) })
+    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel, pageRequested: Int) {
+        let displayableCharacters = prepareCharactersToDisplay(characters)
+        let displayablePagination = preparePaginationToDisplay(pagination, pageRequested: pageRequested)
+        
         DispatchQueue.main.async { [weak self] in
-            self?.viewController?.displayCharacters(displayableCharacters, hasNextPage: pagination.next != nil, hasPreviousPage: pagination.previous != nil)
+            self?.viewController?.displayCharacters(displayableCharacters)
+            self?.viewController?.displayPagination(displayablePagination)
         }
+    }
+    
+    private func prepareCharactersToDisplay(_ characters: [CharacterModel]) -> [CharactersViewModel.Character] {
+        return characters.map({ formatCharacter($0) })
     }
     
     private func formatCharacter(_ character: CharacterModel) -> CharactersViewModel.Character {
@@ -52,5 +59,9 @@ class CharactersPresenter: CharactersPresentationLogic {
         let displayableCharacter = CharactersViewModel.Character(id: character.id, name: character.name, status: status, type: character.type, gender: gender, origin: character.origin.name, lastLocation: character.location.name, image: character.image)
         
         return displayableCharacter
+    }
+    
+    func preparePaginationToDisplay(_ pagination: PaginationModel, pageRequested: Int) -> CharactersViewModel.PaginationInformation {
+        return CharactersViewModel.PaginationInformation(charactersTotal: pagination.count, numberOfPages: pagination.pages, currentPage: pageRequested)
     }
 }

@@ -65,7 +65,7 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
         switch response {
         case .success(let paginatedCharacters):
             self.paginatedCharacters = paginatedCharacters
-            presenter?.presentCharacters(paginatedCharacters.results, pagination: paginatedCharacters.info)
+            presenter?.presentCharacters(paginatedCharacters.results, pagination: paginatedCharacters.info, pageRequested: pageRequested)
         case .error(let error):
             print("")
         }

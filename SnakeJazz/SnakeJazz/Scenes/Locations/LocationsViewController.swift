@@ -15,7 +15,7 @@ import UIKit
 protocol LocationsDisplayLogic: AnyObject {
 }
 
-class LocationsViewController: UIViewController {
+class LocationsViewController: BaseViewController {
     var interactor: LocationsBusinessLogic?
     var router: (NSObjectProtocol & LocationsRoutingLogic & LocationsDataPassing)?
     

@@ -15,7 +15,7 @@ import UIKit
 protocol CharacterDetailsDisplayLogic: AnyObject {
 }
 
-class CharacterDetailsViewController: UIViewController {
+class CharacterDetailsViewController: BaseViewController {
     var interactor: CharacterDetailsBusinessLogic?
     var router: (NSObjectProtocol & CharacterDetailsRoutingLogic & CharacterDetailsDataPassing)?
     

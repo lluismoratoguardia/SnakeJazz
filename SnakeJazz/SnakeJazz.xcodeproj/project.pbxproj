@@ -62,6 +62,12 @@
 		5695DF852C126D8F007A710B /* ClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF842C126D8F007A710B /* ClientConstants.swift */; };
 		56C1F96E2C130C9800818169 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F96D2C130C9800818169 /* PaginationView.swift */; };
 		56C1F9702C130CA200818169 /* PaginationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C1F96F2C130CA200818169 /* PaginationView.xib */; };
+		56C1F9722C13149300818169 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F9712C13149300818169 /* UIViewExtension.swift */; };
+		56C1F9752C131BC700818169 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F9742C131BC700818169 /* BaseView.swift */; };
+		56C1F9772C1330CD00818169 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F9762C1330CD00818169 /* BaseViewController.swift */; };
+		56C1F97A2C1337C700818169 /* DelayableActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F9792C1337C700818169 /* DelayableActivityIndicator.swift */; };
+		56C1F97E2C133A7800818169 /* CharactersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C1F97D2C133A7800818169 /* CharactersTableViewCell.xib */; };
+		56C1F97F2C133A7800818169 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F97C2C133A7800818169 /* CharactersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +146,12 @@
 		5695DF842C126D8F007A710B /* ClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConstants.swift; sourceTree = "<group>"; };
 		56C1F96D2C130C9800818169 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
 		56C1F96F2C130CA200818169 /* PaginationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaginationView.xib; sourceTree = "<group>"; };
+		56C1F9712C13149300818169 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		56C1F9742C131BC700818169 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		56C1F9762C1330CD00818169 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		56C1F9792C1337C700818169 /* DelayableActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayableActivityIndicator.swift; sourceTree = "<group>"; };
+		56C1F97C2C133A7800818169 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
+		56C1F97D2C133A7800818169 /* CharactersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +224,7 @@
 		5625C4D82C10643900ECC39E /* SnakeJazz */ = {
 			isa = PBXGroup;
 			children = (
+				56C1F9732C131BA100818169 /* Base */,
 				56C1F96B2C130C6B00818169 /* UI Components */,
 				5695DF552C11AE8A007A710B /* Fonts */,
 				5695DF4C2C11A809007A710B /* Constants */,
@@ -252,6 +265,7 @@
 				5625C51D2C10BF3900ECC39E /* UIViewControllerExtension.swift */,
 				5695DF4F2C11A95D007A710B /* UIColorExtension.swift */,
 				5695DF602C1210BA007A710B /* UITableViewCellExtension.swift */,
+				56C1F9712C13149300818169 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +341,7 @@
 		562E91842C111B7A004971C5 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				56C1F97B2C133A4500818169 /* Characters Cell */,
 				560EB39F2C111BF100268AA3 /* CharactersPresenter.swift */,
 				560EB3A02C111BF100268AA3 /* CharactersRouter.swift */,
 				560EB3A12C111BF100268AA3 /* CharactersModels.swift */,
@@ -392,6 +407,7 @@
 		56C1F96B2C130C6B00818169 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				56C1F9782C1337B400818169 /* Delayable ActivityIndicator */,
 				56C1F96C2C130C7800818169 /* Pagination View */,
 			);
 			path = "UI Components";
@@ -404,6 +420,32 @@
 				56C1F96F2C130CA200818169 /* PaginationView.xib */,
 			);
 			path = "Pagination View";
+			sourceTree = "<group>";
+		};
+		56C1F9732C131BA100818169 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				56C1F9742C131BC700818169 /* BaseView.swift */,
+				56C1F9762C1330CD00818169 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		56C1F9782C1337B400818169 /* Delayable ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				56C1F9792C1337C700818169 /* DelayableActivityIndicator.swift */,
+			);
+			path = "Delayable ActivityIndicator";
+			sourceTree = "<group>";
+		};
+		56C1F97B2C133A4500818169 /* Characters Cell */ = {
+			isa = PBXGroup;
+			children = (
+				56C1F97C2C133A7800818169 /* CharactersTableViewCell.swift */,
+				56C1F97D2C133A7800818169 /* CharactersTableViewCell.xib */,
+			);
+			path = "Characters Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,6 +564,7 @@
 				560EB3C32C111C4300268AA3 /* DashboardViewController.xib in Resources */,
 				5695DF6F2C122EAE007A710B /* EpisodesViewController.xib in Resources */,
 				5695DF5F2C120E5F007A710B /* DashboardMenuTableViewCell.xib in Resources */,
+				56C1F97E2C133A7800818169 /* CharactersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +594,7 @@
 				5625C51E2C10BF3900ECC39E /* UIViewControllerExtension.swift in Sources */,
 				560EB3A52C111BF100268AA3 /* CharactersPresenter.swift in Sources */,
 				560EB3A62C111BF100268AA3 /* CharactersRouter.swift in Sources */,
+				56C1F9772C1330CD00818169 /* BaseViewController.swift in Sources */,
 				5695DF832C1269F4007A710B /* CharacterModel.swift in Sources */,
 				5695DF6A2C122EAE007A710B /* EpisodesPresenter.swift in Sources */,
 				5695DF6B2C122EAE007A710B /* EpisodesRouter.swift in Sources */,
@@ -565,9 +609,12 @@
 				5695DF6D2C122EAE007A710B /* EpisodesViewController.swift in Sources */,
 				5695DF6E2C122EAE007A710B /* EpisodesInteractor.swift in Sources */,
 				560EB3A72C111BF100268AA3 /* CharactersModels.swift in Sources */,
+				56C1F9752C131BC700818169 /* BaseView.swift in Sources */,
 				5695DF5A2C11B656007A710B /* FontUtils.swift in Sources */,
 				560EB3B22C111C2A00268AA3 /* CharacterDetailsPresenter.swift in Sources */,
+				56C1F97F2C133A7800818169 /* CharactersTableViewCell.swift in Sources */,
 				5695DF522C11AE0E007A710B /* Fonts.swift in Sources */,
+				56C1F97A2C1337C700818169 /* DelayableActivityIndicator.swift in Sources */,
 				5695DF502C11A95D007A710B /* UIColorExtension.swift in Sources */,
 				560EB3B32C111C2A00268AA3 /* CharacterDetailsRouter.swift in Sources */,
 				56C1F96E2C130C9800818169 /* PaginationView.swift in Sources */,
@@ -576,6 +623,7 @@
 				560EB3C02C111C4300268AA3 /* DashboardModels.swift in Sources */,
 				5695DF5E2C120E5F007A710B /* DashboardMenuTableViewCell.swift in Sources */,
 				5695DF812C12668D007A710B /* ResponseModel.swift in Sources */,
+				56C1F9722C13149300818169 /* UIViewExtension.swift in Sources */,
 				5695DF612C1210BA007A710B /* UITableViewCellExtension.swift in Sources */,
 				5695DF4E2C11A828007A710B /* Colors.swift in Sources */,
 				560EB3C12C111C4300268AA3 /* DashboardViewController.swift in Sources */,

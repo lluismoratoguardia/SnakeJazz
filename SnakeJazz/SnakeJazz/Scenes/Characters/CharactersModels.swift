@@ -41,6 +41,5 @@ struct CharactersViewModel {
         let charactersTotal: Int
         let numberOfPages: Int
         let currentPage: Int
-        let charactersPerPage: Int
     }
 }

@@ -13,14 +13,13 @@
 import UIKit
 
 protocol CharactersDisplayLogic: AnyObject {
-    func displayCharacters(_ characters: [CharactersViewModel.Character], hasNextPage: Bool, hasPreviousPage: Bool)
-    func displayPaginationInfo()
+    func displayCharacters(_ characters: [CharactersViewModel.Character])
+    func displayPagination(_ pagination: CharactersViewModel.PaginationInformation)
 }
 
-class CharactersViewController: UIViewController {
-    @IBOutlet private weak var tempLabel: UILabel!
-    @IBOutlet private weak var previousPageButton: UIButton!
-    @IBOutlet private weak var nextPageButton: UIButton!
+class CharactersViewController: BaseViewController {
+    @IBOutlet private weak var charactersTableView: UITableView!
+    @IBOutlet private weak var paginationView: PaginationView!
     
     private var characters = [CharactersViewModel.Character]()
     
@@ -74,35 +73,66 @@ class CharactersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showLoadingIndicator()
         interactor?.getCharacters()
     }
     
     // MARK: View Setup
     
     private func setupView() {
+        setupCharactersTableView()
         title = String(localized: "characters_title")
         view.backgroundColor = Colors.backgroundColor
     }
     
-    // MARK: Actions
+    private func setupCharactersTableView() {
+        charactersTableView.register(CharactersTableViewCell.nib(), forCellReuseIdentifier: CharactersTableViewCell.reuseIdentifier())
+    }
     
-    @IBAction private func previousPageTouchUp() {
+    // MARK: Actions
+}
+
+extension CharactersViewController: PaginationViewProtocol {
+    func getPreviousPage() {
+        showLoadingIndicator()
         interactor?.getPreviousCharacters()
     }
     
-    @IBAction private func nextPageTouchUp() {
+    func getNextPage() {
+        showLoadingIndicator()
         interactor?.getNextCharacters()
     }
 }
 
-extension CharactersViewController: CharactersDisplayLogic {
-    func displayCharacters(_ characters: [CharactersViewModel.Character], hasNextPage: Bool, hasPreviousPage: Bool) {
-        tempLabel.text = characters.first?.name
-        nextPageButton.isEnabled = hasNextPage
-        previousPageButton.isEnabled = hasPreviousPage
+extension CharactersViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    func displayPaginationInfo() {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return characters.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.reuseIdentifier()) as? CharactersTableViewCell else {
+            return UITableViewCell()
+        }
         
+        cell.setup(CharactersTableViewCellModel(name: characters[indexPath.row].name))
+        
+        return cell
+    }
+}
+
+extension CharactersViewController: CharactersDisplayLogic {
+    func displayCharacters(_ characters: [CharactersViewModel.Character]) {
+        self.characters = characters
+        charactersTableView.reloadData()
+        dismissLoadingIndicator()
+    }
+    
+    func displayPagination(_ pagination: CharactersViewModel.PaginationInformation) {
+        paginationView.setup(PaginationViewModel(currentPage: pagination.currentPage, totalPages: pagination.numberOfPages, delegate: self))
+        dismissLoadingIndicator()
     }
 }
