@@ -111,7 +111,7 @@ class DashboardViewController: UIViewController {
     
     private func setupTableView() {
         menuTableView.backgroundColor = Colors.clear
-        menuTableView.register(UINib(nibName: DashboardMenuTableViewCell.getName(), bundle: nil), forCellReuseIdentifier: DashboardMenuTableViewCell.getName())
+        menuTableView.register(DashboardMenuTableViewCell.nib(), forCellReuseIdentifier: DashboardMenuTableViewCell.reuseIdentifier())
     }
     
     private func formatWelcomeTitle() -> NSAttributedString{
@@ -145,7 +145,7 @@ extension DashboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardMenuTableViewCell.getName()) as? DashboardMenuTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardMenuTableViewCell.reuseIdentifier()) as? DashboardMenuTableViewCell else {
             return UITableViewCell()
         }
         

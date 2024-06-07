@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    class func getName() -> String {
-        return String(describing: Self.self)
+    static func nibName() -> String {
+        return String(describing: self)
     }
 }

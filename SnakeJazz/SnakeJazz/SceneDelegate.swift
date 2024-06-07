@@ -50,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func getInitialViewController() -> UIViewController {
-        let dashboardViewController = DashboardViewController(nibName: DashboardViewController.getName(), bundle: nil)
+        let dashboardViewController = DashboardViewController(nibName: DashboardViewController.nibName(), bundle: nil)
         let navigationController = UINavigationController(rootViewController: dashboardViewController)
         
         return navigationController

@@ -27,7 +27,7 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     var dataStore: DashboardDataStore?
     
     func goToCharactersList() {
-        let charactersListViewController = CharactersViewController(nibName: CharactersViewController.getName(), bundle: nil)
+        let charactersListViewController = CharactersViewController(nibName: CharactersViewController.nibName(), bundle: nil)
         if let navigationController = viewController?.navigationController {
             navigationController.pushViewController(charactersListViewController, animated: true)
         } else {
@@ -36,7 +36,7 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     }
     
     func goToEpisodesList() {
-        let episodesListViewController = EpisodesViewController(nibName: EpisodesViewController.getName(), bundle: nil)
+        let episodesListViewController = EpisodesViewController(nibName: EpisodesViewController.nibName(), bundle: nil)
         if let navigationController = viewController?.navigationController {
             navigationController.pushViewController(episodesListViewController, animated: true)
         } else {
@@ -45,7 +45,7 @@ class DashboardRouter: NSObject, DashboardRoutingLogic, DashboardDataPassing {
     }
     
     func goToLocationsList() {
-        let locationsListViewController = LocationsViewController(nibName: LocationsViewController.getName(), bundle: nil)
+        let locationsListViewController = LocationsViewController(nibName: LocationsViewController.nibName(), bundle: nil)
         if let navigationController = viewController?.navigationController {
             navigationController.pushViewController(locationsListViewController, animated: true)
         } else {
