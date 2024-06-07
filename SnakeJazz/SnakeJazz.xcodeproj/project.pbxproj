@@ -60,6 +60,8 @@
 		5695DF812C12668D007A710B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF802C12668D007A710B /* ResponseModel.swift */; };
 		5695DF832C1269F4007A710B /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF822C1269F4007A710B /* CharacterModel.swift */; };
 		5695DF852C126D8F007A710B /* ClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695DF842C126D8F007A710B /* ClientConstants.swift */; };
+		56C1F96E2C130C9800818169 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1F96D2C130C9800818169 /* PaginationView.swift */; };
+		56C1F9702C130CA200818169 /* PaginationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C1F96F2C130CA200818169 /* PaginationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		5695DF802C12668D007A710B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		5695DF822C1269F4007A710B /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		5695DF842C126D8F007A710B /* ClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConstants.swift; sourceTree = "<group>"; };
+		56C1F96D2C130C9800818169 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
+		56C1F96F2C130CA200818169 /* PaginationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaginationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 		5625C4D82C10643900ECC39E /* SnakeJazz */ = {
 			isa = PBXGroup;
 			children = (
+				56C1F96B2C130C6B00818169 /* UI Components */,
 				5695DF552C11AE8A007A710B /* Fonts */,
 				5695DF4C2C11A809007A710B /* Constants */,
 				560EB3C42C111C9C00268AA3 /* Assets */,
@@ -384,6 +389,23 @@
 			path = Episodes;
 			sourceTree = "<group>";
 		};
+		56C1F96B2C130C6B00818169 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				56C1F96C2C130C7800818169 /* Pagination View */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		56C1F96C2C130C7800818169 /* Pagination View */ = {
+			isa = PBXGroup;
+			children = (
+				56C1F96D2C130C9800818169 /* PaginationView.swift */,
+				56C1F96F2C130CA200818169 /* PaginationView.xib */,
+			);
+			path = "Pagination View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,6 +514,7 @@
 				560EB3AA2C111BF100268AA3 /* CharactersViewController.xib in Resources */,
 				560EB3B72C111C2A00268AA3 /* CharacterDetailsViewController.xib in Resources */,
 				560EB3C82C111DA700268AA3 /* Localizable.xcstrings in Resources */,
+				56C1F9702C130CA200818169 /* PaginationView.xib in Resources */,
 				5625C4E32C10643A00ECC39E /* Assets.xcassets in Resources */,
 				5625C4E62C10643A00ECC39E /* Base in Resources */,
 				5695DF7B2C122EE9007A710B /* LocationsViewController.xib in Resources */,
@@ -547,6 +570,7 @@
 				5695DF522C11AE0E007A710B /* Fonts.swift in Sources */,
 				5695DF502C11A95D007A710B /* UIColorExtension.swift in Sources */,
 				560EB3B32C111C2A00268AA3 /* CharacterDetailsRouter.swift in Sources */,
+				56C1F96E2C130C9800818169 /* PaginationView.swift in Sources */,
 				560EB3BE2C111C4300268AA3 /* DashboardPresenter.swift in Sources */,
 				560EB3BF2C111C4300268AA3 /* DashboardRouter.swift in Sources */,
 				560EB3C02C111C4300268AA3 /* DashboardModels.swift in Sources */,
