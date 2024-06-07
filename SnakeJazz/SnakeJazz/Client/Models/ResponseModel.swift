@@ -17,4 +17,11 @@ struct PaginationModel: Codable {
     let pages: Int
     let next: String?
     let previous: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case count = "count"
+        case pages = "pages"
+        case next = "next"
+        case previous = "prev"
+    }
 }

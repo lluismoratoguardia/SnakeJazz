@@ -13,15 +13,17 @@
 import UIKit
 
 protocol CharactersPresentationLogic {
-    func presentCharacters(_ characters: [CharacterModel], canPaginate: Bool)
+    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel)
 }
 
 class CharactersPresenter: CharactersPresentationLogic {
     weak var viewController: CharactersDisplayLogic?
     
-    func presentCharacters(_ characters: [CharacterModel], canPaginate: Bool) {
+    func presentCharacters(_ characters: [CharacterModel], pagination: PaginationModel) {
         let displayableCharacters = characters.map({ formatCharacter($0) })
-        viewController?.displayCharacters(displayableCharacters, canPaginate: canPaginate)
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.displayCharacters(displayableCharacters, hasNextPage: pagination.next != nil, hasPreviousPage: pagination.previous != nil)
+        }
     }
     
     private func formatCharacter(_ character: CharacterModel) -> CharactersViewModel.Character {

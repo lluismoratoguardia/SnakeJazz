@@ -14,6 +14,7 @@ import UIKit
 
 protocol CharactersBusinessLogic {
     func getCharacters()
+    func getPreviousCharacters()
     func getNextCharacters()
 }
 
@@ -24,12 +25,27 @@ protocol CharactersDataStore {
 class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
     var presenter: CharactersPresentationLogic?
     
-    var paginatedCharacters: PaginatedResponseModel<CharacterModel>?
+    private var paginatedCharacters: PaginatedResponseModel<CharacterModel>?
+    private var pageRequested = 0
     //var name: String = ""
     
     func getCharacters() {
         Client.shared.requestPaginatedCharacters { [weak self] response in
-            self?.handlePaginatedCharactersResponse(response)
+            guard let self = self else { return }
+            self.pageRequested = 1
+            self.handlePaginatedCharactersResponse(response)
+        }
+    }
+    
+    func getPreviousCharacters() {
+        guard let previousPage = paginatedCharacters?.info.previous else {
+            return
+        }
+        
+        Client.shared.requestCharactersPage(previousPage) { [weak self] response in
+            guard let self = self else { return }
+            self.pageRequested = self.pageRequested - 1
+            self.handlePaginatedCharactersResponse(response)
         }
     }
     
@@ -39,7 +55,9 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
         }
         
         Client.shared.requestCharactersPage(nextPage) { [weak self] response in
-            self?.handlePaginatedCharactersResponse(response)
+            guard let self = self else { return }
+            self.pageRequested = self.pageRequested + 1
+            self.handlePaginatedCharactersResponse(response)
         }
     }
     
@@ -47,7 +65,7 @@ class CharactersInteractor: CharactersBusinessLogic, CharactersDataStore {
         switch response {
         case .success(let paginatedCharacters):
             self.paginatedCharacters = paginatedCharacters
-            presenter?.presentCharacters(paginatedCharacters.results, canPaginate: paginatedCharacters.info.next != nil)
+            presenter?.presentCharacters(paginatedCharacters.results, pagination: paginatedCharacters.info)
         case .error(let error):
             print("")
         }

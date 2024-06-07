@@ -13,13 +13,16 @@
 import UIKit
 
 protocol CharactersDisplayLogic: AnyObject {
-    func displayCharacters(_ characters: [CharactersViewModel.Character], canPaginate: Bool)
+    func displayCharacters(_ characters: [CharactersViewModel.Character], hasNextPage: Bool, hasPreviousPage: Bool)
+    func displayPaginationInfo()
 }
 
 class CharactersViewController: UIViewController {
-    @IBOutlet private weak var simulatePaginationButton: UIButton!
+    @IBOutlet private weak var tempLabel: UILabel!
+    @IBOutlet private weak var previousPageButton: UIButton!
+    @IBOutlet private weak var nextPageButton: UIButton!
     
-    private var canPaginate = false
+    private var characters = [CharactersViewModel.Character]()
     
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
@@ -83,18 +86,23 @@ class CharactersViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction private func simulatePaginationTouchUp() {
-        if canPaginate {
-            interactor?.getNextCharacters()
-        } else {
-            simulatePaginationButton.isEnabled = false
-        }
+    @IBAction private func previousPageTouchUp() {
+        interactor?.getPreviousCharacters()
+    }
+    
+    @IBAction private func nextPageTouchUp() {
+        interactor?.getNextCharacters()
     }
 }
 
 extension CharactersViewController: CharactersDisplayLogic {
-    func displayCharacters(_ characters: [CharactersViewModel.Character], canPaginate: Bool) {
-        self.canPaginate = canPaginate
-        print(characters)
+    func displayCharacters(_ characters: [CharactersViewModel.Character], hasNextPage: Bool, hasPreviousPage: Bool) {
+        tempLabel.text = characters.first?.name
+        nextPageButton.isEnabled = hasNextPage
+        previousPageButton.isEnabled = hasPreviousPage
+    }
+    
+    func displayPaginationInfo() {
+        
     }
 }

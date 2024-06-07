@@ -36,4 +36,11 @@ struct CharactersViewModel {
         case genderless
         case unknown
     }
+    
+    struct PaginationInformation {
+        let charactersTotal: Int
+        let numberOfPages: Int
+        let currentPage: Int
+        let charactersPerPage: Int
+    }
 }
