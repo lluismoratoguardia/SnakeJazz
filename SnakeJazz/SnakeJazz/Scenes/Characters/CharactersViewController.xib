@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,28 +25,38 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="T77-fU-hxA">
-                    <rect key="frame" x="285" y="59" width="88" height="44"/>
+                    <rect key="frame" x="297" y="59" width="88" height="44"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-qU-MH7">
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-qU-MH7">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="X1b-Cf-Tp9"/>
                                 <constraint firstAttribute="width" constant="44" id="fwZ-fY-OrB"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="list.bullet.circle" catalog="system"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <imageReference key="image" image="list.bullet.circle" catalog="system" symbolScale="large"/>
+                            </state>
+                            <state key="selected">
+                                <imageReference key="image" image="list.bullet.circle.fill" catalog="system" symbolScale="large"/>
+                            </state>
                             <connections>
                                 <action selector="listButtonTouchUp" destination="-1" eventType="touchUpInside" id="tp0-1U-Yez"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rN-NV-bEA">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rN-NV-bEA">
                             <rect key="frame" x="44" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="ekn-RG-8cU"/>
                                 <constraint firstAttribute="height" constant="44" id="oN5-ff-xY8"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="circle.grid.3x3.circle" catalog="system"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <imageReference key="image" image="circle.grid.3x3.circle" catalog="system" symbolScale="large"/>
+                            </state>
+                            <state key="selected">
+                                <imageReference key="image" image="circle.grid.3x3.circle.fill" catalog="system" symbolScale="large"/>
+                            </state>
                             <connections>
                                 <action selector="gridButtonTouchUp" destination="-1" eventType="touchUpInside" id="yTH-fa-BVN"/>
                             </connections>
@@ -102,7 +113,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="khh-5o-lCU" firstAttribute="top" secondItem="T77-fU-hxA" secondAttribute="bottom" id="9xw-VK-zfH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T77-fU-hxA" secondAttribute="trailing" constant="20" id="LSQ-nX-u9h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T77-fU-hxA" secondAttribute="trailing" constant="8" id="LSQ-nX-u9h"/>
                 <constraint firstAttribute="bottom" secondItem="C4M-4z-9Ij" secondAttribute="bottom" id="Sib-Hf-tEA"/>
                 <constraint firstItem="khh-5o-lCU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dWZ-s5-vTp"/>
                 <constraint firstItem="C4M-4z-9Ij" firstAttribute="top" secondItem="khh-5o-lCU" secondAttribute="bottom" constant="10" id="dpg-9B-5q3"/>
@@ -116,7 +127,9 @@
     </objects>
     <resources>
         <image name="circle.grid.3x3.circle" catalog="system" width="128" height="123"/>
+        <image name="circle.grid.3x3.circle.fill" catalog="system" width="128" height="123"/>
         <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
+        <image name="list.bullet.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -93,11 +93,23 @@ class CharactersViewController: BaseViewController {
     // MARK: View Setup
     
     private func setupView() {
+        addFilterButton()
         setupCharactersTableView()
         setupCharactersCollectionView()
         
         title = String(localized: "characters_title")
         view.backgroundColor = Colors.backgroundColor
+    }
+    
+    private func addFilterButton() {
+        let filterImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
+        let filterButtonItem = UIBarButtonItem(image: filterImage, style: .plain, target: self, action: #selector(filterTouchUp))
+        
+        navigationItem.setRightBarButton(filterButtonItem, animated: true)
+    }
+    
+    @IBAction private func filterTouchUp() {
+        print("filtering!")
     }
     
     private func setupCharactersTableView() {
@@ -114,10 +126,14 @@ class CharactersViewController: BaseViewController {
     // MARK: Actions
     
     @IBAction private func listButtonTouchUp() {
+        listButton.isSelected = true
+        gridButton.isSelected = false
         charactersDisplayMode = .list
     }
     
     @IBAction private func gridButtonTouchUp() {
+        listButton.isSelected = false
+        gridButton.isSelected = true
         charactersDisplayMode = .grid
     }
     
