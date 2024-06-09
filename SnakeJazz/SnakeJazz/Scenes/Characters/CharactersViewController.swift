@@ -18,10 +18,23 @@ protocol CharactersDisplayLogic: AnyObject {
 }
 
 class CharactersViewController: BaseViewController {
+    @IBOutlet private weak var listButton: UIButton!
+    @IBOutlet private weak var gridButton: UIButton!
     @IBOutlet private weak var charactersTableView: UITableView!
+    @IBOutlet private weak var charactersCollectionView: UICollectionView!
     @IBOutlet private weak var paginationView: PaginationView!
     
     private var characters = [CharactersViewModel.Character]()
+    private var charactersDisplayMode: CharactersDisplayModeOptions = .list {
+        didSet {
+            updateCharacters()
+        }
+    }
+    
+    private enum CharactersDisplayModeOptions {
+        case list
+        case grid
+    }
     
     var interactor: CharactersBusinessLogic?
     var router: (NSObjectProtocol & CharactersRoutingLogic & CharactersDataPassing)?
@@ -81,6 +94,8 @@ class CharactersViewController: BaseViewController {
     
     private func setupView() {
         setupCharactersTableView()
+        setupCharactersCollectionView()
+        
         title = String(localized: "characters_title")
         view.backgroundColor = Colors.backgroundColor
     }
@@ -89,7 +104,36 @@ class CharactersViewController: BaseViewController {
         charactersTableView.register(CharactersTableViewCell.nib(), forCellReuseIdentifier: CharactersTableViewCell.reuseIdentifier())
     }
     
+    private func setupCharactersCollectionView() {
+        charactersCollectionView.register(CharactersCollectionViewCell.nib(), forCellWithReuseIdentifier: CharactersCollectionViewCell.reuseIdentifier())
+        if let collectionViewLayout = charactersCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
+    
     // MARK: Actions
+    
+    @IBAction private func listButtonTouchUp() {
+        charactersDisplayMode = .list
+    }
+    
+    @IBAction private func gridButtonTouchUp() {
+        charactersDisplayMode = .grid
+    }
+    
+    private func updateCharacters() {
+        switch charactersDisplayMode {
+        case .grid:
+            charactersTableView.isHidden = true
+            charactersCollectionView.isHidden = false
+        case .list:
+            charactersTableView.isHidden = false
+            charactersCollectionView.isHidden = true
+        }
+        
+        charactersTableView.reloadData()
+        charactersCollectionView.reloadData()
+    }
 }
 
 extension CharactersViewController: PaginationViewProtocol {
@@ -110,7 +154,7 @@ extension CharactersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return charactersDisplayMode == .list ? characters.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,10 +168,30 @@ extension CharactersViewController: UITableViewDataSource {
     }
 }
 
+extension CharactersViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return charactersDisplayMode == .grid ? characters.count : 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharactersCollectionViewCell.reuseIdentifier(), for: indexPath) as? CharactersCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.setup(CharactersCollectionViewCellModel(portraitUrl: characters[indexPath.row].image, name: characters[indexPath.row].name))
+        
+        return cell
+    }
+}
+
 extension CharactersViewController: CharactersDisplayLogic {
     func displayCharacters(_ characters: [CharactersViewModel.Character]) {
         self.characters = characters
-        charactersTableView.reloadData()
+        updateCharacters()
         dismissLoadingIndicator()
     }
     

@@ -1,0 +1,6 @@
+framework module Pods_SnakeJazz {
+  umbrella header "Pods-SnakeJazz-umbrella.h"
+
+  export *
+  module * { export * }
+}
