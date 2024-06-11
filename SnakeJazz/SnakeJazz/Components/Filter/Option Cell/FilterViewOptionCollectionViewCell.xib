@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterViewOptionCollectionViewCellIdentifier" id="gTV-IL-0wX" customClass="FilterViewOptionCollectionViewCell" customModule="SnakeJazz" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDn-LL-EWK">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxF-3H-l7C">
+                                <rect key="frame" x="16" y="10" width="18" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wxF-3H-l7C" firstAttribute="leading" secondItem="RDn-LL-EWK" secondAttribute="leading" constant="16" id="EMZ-pr-gdK"/>
+                            <constraint firstAttribute="trailing" secondItem="wxF-3H-l7C" secondAttribute="trailing" constant="16" id="Flu-ul-haY"/>
+                            <constraint firstItem="wxF-3H-l7C" firstAttribute="top" secondItem="RDn-LL-EWK" secondAttribute="top" constant="10" id="d9C-BI-GHX"/>
+                            <constraint firstAttribute="bottom" secondItem="wxF-3H-l7C" secondAttribute="bottom" constant="10" id="ftf-B9-i9x"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="RDn-LL-EWK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Zv-B6-oXU"/>
+                <constraint firstItem="RDn-LL-EWK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9bf-uw-8no"/>
+                <constraint firstAttribute="trailing" secondItem="RDn-LL-EWK" secondAttribute="trailing" id="JgS-1s-AU9"/>
+                <constraint firstAttribute="bottom" secondItem="RDn-LL-EWK" secondAttribute="bottom" id="PaV-gt-vgh"/>
+            </constraints>
+            <connections>
+                <outlet property="roundedView" destination="RDn-LL-EWK" id="MdS-No-D28"/>
+                <outlet property="titleLabel" destination="wxF-3H-l7C" id="gCT-BH-YHk"/>
+            </connections>
+            <point key="canvasLocation" x="21" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

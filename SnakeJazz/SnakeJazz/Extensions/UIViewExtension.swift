@@ -8,15 +8,6 @@
 import UIKit
 
 extension UIView {
-    static func nibName() -> String {
-        return String(describing: self)
-    }
-    
-    static func nib() -> UINib {
-        let bundle = Bundle(for: self)
-        return UINib(nibName: nibName(), bundle: bundle)
-    }
-    
     func showLoader() -> UIActivityIndicatorView {
         //Customize as per your need
         let spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height:40))
@@ -33,3 +24,5 @@ extension UIView {
         return spinner
     }
 }
+
+extension UIView: Nibable {}

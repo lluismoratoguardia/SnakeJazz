@@ -68,7 +68,7 @@ class LocationsViewController: BaseViewController {
     
     private func setupView() {
         title = String(localized: "locations_title")
-        view.backgroundColor = Colors.backgroundColor
+        view.backgroundColor = Colors.background
     }
     
     // MARK: Actions

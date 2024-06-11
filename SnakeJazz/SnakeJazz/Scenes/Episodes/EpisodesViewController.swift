@@ -68,7 +68,7 @@ class EpisodesViewController: BaseViewController {
     
     private func setupView() {
         title = String(localized: "episodes_title")
-        view.backgroundColor = Colors.backgroundColor
+        view.backgroundColor = Colors.background
     }
     
     // MARK: Actions

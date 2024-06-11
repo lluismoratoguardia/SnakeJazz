@@ -98,7 +98,7 @@ class CharactersViewController: BaseViewController {
         setupCharactersCollectionView()
         
         title = String(localized: "characters_title")
-        view.backgroundColor = Colors.backgroundColor
+        view.backgroundColor = Colors.background
     }
     
     private func addFilterButton() {
@@ -110,14 +110,20 @@ class CharactersViewController: BaseViewController {
     
     @IBAction private func filterTouchUp() {
         print("filtering!")
+        FilterView.showInView(view, model: FilterViewModel(sections: [
+            FilterViewSectionModel(header: String(localized: "characters_filter_section_name"), content: .search),
+            FilterViewSectionModel(header: String(localized: "characters_filter_section_gender"), content: .options(list: CharactersViewModel.CharacterGender.allCases.map({$0.getDisplayName()}))),
+            FilterViewSectionModel(header: String(localized: "characters_filter_section_status"), content: .options(list: CharactersViewModel.CharacterStatus.allCases.map({$0.getDisplayName()})))
+        ], delegate: self))
+        
     }
     
     private func setupCharactersTableView() {
-        charactersTableView.register(CharactersTableViewCell.nib(), forCellReuseIdentifier: CharactersTableViewCell.reuseIdentifier())
+        charactersTableView.register(CharactersTableViewCell.self)
     }
     
     private func setupCharactersCollectionView() {
-        charactersCollectionView.register(CharactersCollectionViewCell.nib(), forCellWithReuseIdentifier: CharactersCollectionViewCell.reuseIdentifier())
+        charactersCollectionView.register(CharactersCollectionViewCell.self)
         if let collectionViewLayout = charactersCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
@@ -152,6 +158,9 @@ class CharactersViewController: BaseViewController {
     }
 }
 
+extension CharactersViewController: FilterViewProtocol {
+}
+
 extension CharactersViewController: PaginationViewProtocol {
     func getPreviousPage() {
         showLoadingIndicator()
@@ -174,10 +183,7 @@ extension CharactersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.reuseIdentifier()) as? CharactersTableViewCell else {
-            return UITableViewCell()
-        }
-        
+        let cell: CharactersTableViewCell = tableView.dequeueCell(indexPath)
         cell.setup(CharactersTableViewCellModel(name: characters[indexPath.row].name))
         
         return cell
@@ -194,10 +200,7 @@ extension CharactersViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharactersCollectionViewCell.reuseIdentifier(), for: indexPath) as? CharactersCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
+        let cell: CharactersCollectionViewCell = collectionView.dequeueCell(indexPath)
         cell.setup(CharactersCollectionViewCellModel(portraitUrl: characters[indexPath.row].image, name: characters[indexPath.row].name))
         
         return cell

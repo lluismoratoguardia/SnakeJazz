@@ -24,17 +24,41 @@ struct CharactersViewModel {
         let image: String
     }
     
-    enum CharacterStatus {
+    enum CharacterStatus: CaseIterable {
         case dead
         case alive
         case unknown
+        
+        func getDisplayName() -> String {
+            switch self {
+            case .dead:
+                String(localized: "characters_status_dead")
+            case .alive:
+                String(localized: "characters_status_alive")
+            case .unknown:
+                String(localized: "characters_status_unknown")
+            }
+        }
     }
     
-    enum CharacterGender {
+    enum CharacterGender: CaseIterable {
         case male
         case female
         case genderless
         case unknown
+        
+        func getDisplayName() -> String {
+            switch self {
+            case .male:
+                String(localized: "characters_gender_male")
+            case .female:
+                String(localized: "characters_gender_female")
+            case .genderless:
+                String(localized: "characters_gender_genderless")
+            case .unknown:
+                String(localized: "characters_gender_unknown")
+            }
+        }
     }
     
     struct PaginationInformation {

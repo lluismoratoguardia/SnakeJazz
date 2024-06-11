@@ -95,7 +95,7 @@ class DashboardViewController: BaseViewController {
     
     private func setupView() {
         title = String(localized: "dashboard_title")
-        view.backgroundColor = Colors.backgroundColor
+        view.backgroundColor = Colors.background
         
         welcomeTitleLabel.font = Fonts.mainTitle
         welcomeSubtitleLabel.font = Fonts.mainSubtitle
@@ -111,7 +111,7 @@ class DashboardViewController: BaseViewController {
     
     private func setupTableView() {
         menuTableView.backgroundColor = Colors.clear
-        menuTableView.register(DashboardMenuTableViewCell.nib(), forCellReuseIdentifier: DashboardMenuTableViewCell.reuseIdentifier())
+        menuTableView.register(DashboardMenuTableViewCell.self)
     }
     
     private func formatWelcomeTitle() -> NSAttributedString{
@@ -145,10 +145,7 @@ extension DashboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardMenuTableViewCell.reuseIdentifier()) as? DashboardMenuTableViewCell else {
-            return UITableViewCell()
-        }
-        
+        let cell: DashboardMenuTableViewCell = tableView.dequeueCell(indexPath)
         cell.setup(DashboardMenuCellModel(title: menuOptions[indexPath.row].displayName()))
         
         return cell

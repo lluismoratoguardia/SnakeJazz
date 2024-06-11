@@ -10,10 +10,10 @@ import UIKit
 struct PaginationViewModel {
     let currentPage: Int
     let totalPages: Int
-    let delegate: PaginationViewProtocol
+    weak var delegate: PaginationViewProtocol?
 }
 
-protocol PaginationViewProtocol {
+protocol PaginationViewProtocol: AnyObject {
     func getPreviousPage()
     func getNextPage()
 }
@@ -36,10 +36,10 @@ class PaginationView: BaseView {
     // MARK: Actions
     
     @IBAction private func previousPageTouchUp() {
-        model?.delegate.getPreviousPage()
+        model?.delegate?.getPreviousPage()
     }
     
     @IBAction private func nextPageTouchUp() {
-        model?.delegate.getNextPage()
+        model?.delegate?.getNextPage()
     }
 }
